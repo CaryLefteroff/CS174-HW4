@@ -1,0 +1,13 @@
+{
+  "name": "caj_inc/hw4",
+  "description": "language quiz app",
+  "authors": [
+    {
+      "name": "caj",
+      "email": "aaronli1227@gmail.com"
+    }
+  ],
+  "require": {
+    "caj/hw4": "dev-master"
+  }
+}
