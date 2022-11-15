@@ -6,9 +6,8 @@ require_once("View.php");
 
 class LandingPageContent extends View {
   function render($page_name) {
-    // drawHeader();
     ?>
-    <div>
+    <div id="quiz-chooser">
         <form name="landing-form" method="post" action="index.php">
             <div>
             <select name="choose" id="choose">

@@ -1,0 +1,27 @@
+body {
+  width: 500px;
+  margin: auto;
+}
+
+.header {
+  text-align: center;
+}
+
+#quiz-chooser {
+  width: 250px;
+  margin: auto;
+}
+
+.center {
+  text-align: center;
+}
+
+footer {
+  display: block;
+  text-align: center;
+  padding-top: 20px;
+}
+
+p {
+  font-size: 14pt;
+}

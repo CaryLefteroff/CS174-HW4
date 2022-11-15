@@ -1,6 +1,6 @@
 <?php
 
-namespace caj_inc\hw4;
+namespace caj_inc\hw4\views\layouts;
 
 require_once("views/layouts/Layout.php");
 
@@ -17,7 +17,7 @@ class DefaultLayout extends Layout {
       </head>
       <body>
         <div class="header">
-          <h1><a href="index.php">Language Quiz</a>/NAME OF QUIZ</h1>
+          <h1><a href="index.php">Language Quiz</a><?php if ($page_name != "landing") echo "/NAME OF QUIZ"; ?></h1>
         </div>
     <?php
   }
