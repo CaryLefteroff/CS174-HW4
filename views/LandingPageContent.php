@@ -1,11 +1,11 @@
 <?php
 
-namespace caj_inc\hw4;
+namespace caj_inc\hw4\views;
 
 require_once("View.php");
 
 class LandingPageContent extends View {
-  function render() {
+  function render($page_name) {
     // drawHeader();
     ?>
     <div>
