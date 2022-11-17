@@ -8,6 +8,6 @@
     }
   ],
   "require": {
-    "caj/hw4": "dev-master"
+    "monolog/monolog": "^3.2"
   }
 }
