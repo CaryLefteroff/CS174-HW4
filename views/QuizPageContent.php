@@ -3,14 +3,19 @@
 namespace caj_inc\hw4\views;
 
 require_once("View.php");
+require_once("controllers/QuizController.php");
+
+use caj_inc\hw4\controllers\QuizController;
 
 class QuizPageContent extends View {
   function render($page_name) {
-    $temp = ["Question 1" => ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]];
-    $questions = [];
-    for ($i = 0; $i < 20; $i++) {
-        $questions[$i] = $temp; //FOR TESTING
-    }
+    // $temp = ["Question 1" => ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]];
+    // $questions = [];
+    // for ($i = 0; $i < 20; $i++) {
+    //     $questions[$i] = $temp; //FOR TESTING
+    // }
+    $controller = new QuizController();
+    $questions = $controller -> generateQuestions("language");
     ?>
     <div id="quiz-page">
         <form name="quiz-selections" method="post" action="index.php">
@@ -18,7 +23,7 @@ class QuizPageContent extends View {
             <p>Select the words that could be used to fill in the blank (at least one should work).</p>
             </div>
             <?php
-            drawQuizQuestions($questions);
+            $this->drawQuizQuestions($questions);
             ?>
             <div>
                 <button type="submit">Submit</button>
@@ -31,14 +36,17 @@ class QuizPageContent extends View {
   function drawQuizQuestions($questions) {
     $index = 1;
     foreach($questions as $key => $value) {
-    	$k = array_keys($value);
-        $v = array_values($value);
+        // ["question string" => ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]]
+    	// $k = array_keys($value);
+        // $v = array_values($value);
         $answerIndex = 0;
-        $prompt = $index.". ".$k[0];
-        $a1 = $v[0][0];
-        $a2 = $v[0][1];
-        $a3 = $v[0][2];
-        $a4 = $v[0][3];
+        $prompt = $index.". ".$key;
+
+        // print_r($value);
+        $a1 = $value[0];
+        $a2 = $value[1];
+        $a3 = $value[2];
+        $a4 = $value[3];
         ?>
         <div>
             <h5><?php echo $prompt; ?></h5>

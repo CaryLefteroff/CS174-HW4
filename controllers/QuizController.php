@@ -5,7 +5,7 @@ namespace caj_inc\hw4\controllers;
 // require_once("controllers/Controller.php");
 require_once("models/Test.php");
 
-use caj_inc\hw4\models;
+use caj_inc\hw4\models\Test;
 
 class QuizController extends Controller {
   function generateQuestions($language) {
@@ -13,16 +13,20 @@ class QuizController extends Controller {
     // aaron's quiz file is an associative array of 
     // word => [occurrences, [5-grams]]
     // get source array
-    $model = new models/Test();
+    $model = new Test();
     $source = $model -> getArray();
     // create a result array
     $result = [];
     // 20 times
-    for ($i = 0; $i < 5; $i++) {
+    for ($i = 0; $i < 20; $i++) {
       // choose a word with uniform probability
       $word = array_rand($source);
       // choose one of the 5-grams with uniform probability
-      $string = array_rand($source[$word]);
+      $string = $source[$word][1][array_rand($source[$word][1])];
+      $string = explode(" ", $string);
+      $string[2] = "____";
+      $string = implode(" ", $string);
+
       // generate three other words from the file into an array
       $answers = [];
       // add correct word randomly into the array
@@ -41,9 +45,8 @@ class QuizController extends Controller {
           }
         }
       }
-      $question = [$string => $answers];
       // add array of question strings => answers to result array
-      array_push($result, $question);
+      $result[$string] = $answers;
     }
     return $result;
   }
