@@ -19,11 +19,13 @@ class LandingPageContent extends View {
                 <p>Years Experience:</p>
             </div>
             <div>
+                    <input type="hidden" name="c" value="QuizController">
+                    <input type="hidden" name="m" value="generateQuestions">
                 <input type="text" name="experience"/>
             </div>
             <div>
                 <span>
-                    <button type="submit">Start Quiz</button>
+                    <button type="submit" >Start Quiz</button>
                     <button type="submit">See Results</button>
                 </span>
             </div>
