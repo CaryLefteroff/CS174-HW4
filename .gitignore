@@ -1,2 +1,3 @@
 # Ignore vendor folder
 vendor
+composer.lock
