@@ -2,6 +2,10 @@
 
 namespace caj_inc\hw4\models;
 
+require_once("Model.php");
+
+use caj_inc\hw4\models\Model;
+
 class Test extends Model {
   function getArray() {
     return [

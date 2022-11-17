@@ -5,7 +5,7 @@ namespace caj_inc\hw4\views;
 require_once("View.php");
 
 class QuizPageContent extends View {
-  function render() {
+  function render($page_name) {
     $temp = ["Question 1" => ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]];
     $questions = [];
     for ($i = 0; $i < 20; $i++) {
