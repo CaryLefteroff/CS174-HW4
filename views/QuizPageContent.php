@@ -36,9 +36,10 @@ class QuizPageContent extends View {
   function drawQuizQuestions($questions) {
     $index = 1;
     foreach($questions as $question) {
-        // [0 => "question string", 1 => ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]]
+        // [0 => "question string", 1 => ["Answer 1", "Answer 2", "Answer 3", "Answer 4"], 2 => "word", 3 => "percentile"]
     	// $k = array_keys($value);
         // $v = array_values($value);
+        $word = explode(" ", $question[0])[2];
         $answerIndex = 0;
         $prompt = $index.". ".$question[0];
 
@@ -50,6 +51,7 @@ class QuizPageContent extends View {
         <div>
             <h5><?php echo $prompt; ?></h5>
             <span>
+                <input type="hidden" name=<?= $word ?> value="DisplayController">
                 <input type="checkbox" name="answer<?$index?>_1"/>
                 <label for="answer<?$index?>_1"><?php echo $a1;?></label>
                 <input type="checkbox" name="answer<?$index?>_2"/>
