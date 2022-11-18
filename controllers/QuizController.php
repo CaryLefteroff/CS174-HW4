@@ -2,17 +2,9 @@
 
 namespace caj_inc\hw4\controllers;
 
-// require_once("controllers/Controller.php");
-require_once("models/Test.php");
-require_once("data/english.txt");
-
-use caj_inc\hw4\models\Test;
-
 class QuizController extends Controller {
   function generateQuestions($language) {
     // format for each question: ["question string" => ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]]
-    // aaron's quiz file is an associative array of 
-    // word => [occurrences, [5-grams]]
     // get source array
     $source = $this -> getData("english");
     // create a result array
