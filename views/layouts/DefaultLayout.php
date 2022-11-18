@@ -7,7 +7,7 @@ require_once("views/layouts/Layout.php");
 use caj_inc\hw4\views\layouts\Layout;
 
 class DefaultLayout extends Layout {
-  function drawHeader($page_name) {
+  function drawHeader($language, $page_name) {
     ?>
     <!DOCTYPE html>
     <html>
@@ -17,7 +17,8 @@ class DefaultLayout extends Layout {
       </head>
       <body>
         <div class="header">
-          <h1><a href="index.php">Language Quiz</a><?php if ($page_name != "landing") echo "/NAME OF QUIZ"; ?></h1>
+          <h1><a href="index.php">Language Quiz</a>/<?php echo ucfirst($language);
+          if ($page_name == 'results') echo '/Results'; ?></h1>
         </div>
     <?php
   }

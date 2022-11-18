@@ -15,13 +15,13 @@ $language = (isset($_REQUEST['language'])) ? $_REQUEST['language'] : 'english';
 switch($controller) {
   case 'DisplayController':
     $display_controller = new DisplayController();
-    $display_controller -> $controller_method();
+    $display_controller -> $controller_method($language);
     break;
   case 'QuizController':
     $quiz_controller = new QuizController();
     $quiz_controller -> $controller_method($language);
   default:
     $display_controller = new DisplayController();
-    $display_controller -> $controller_method();
+    $display_controller -> $controller_method($language);
     break;
 }

@@ -44,8 +44,9 @@ class QuizController extends Controller {
       }
       // add array of question strings => answers to result array
       // [0 => "question string", 1 => ["Answer 1", "Answer 2", "Answer 3", "Answer 4"], 2 => "word", 3 => "percentile"]
-      $percentile = $source[$word][0] / $num_words;
-      $question = [$string, $answers, $word,];
+      $percentile = $source[$word][0] / $num_words * 100;
+      while (intdiv($percentile / 5) != 0) $percentile++;
+      $question = [$string, $answers, $word, $percentile];
       array_push($result, $question);
       // $result[$string] = $answers;
     }
