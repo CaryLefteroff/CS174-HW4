@@ -42,7 +42,6 @@ class QuizPageContent extends View {
         $answerIndex = 0;
         $prompt = $index.". ".$key;
 
-        // print_r($value);
         $a1 = $value[0];
         $a2 = $value[1];
         $a3 = $value[2];

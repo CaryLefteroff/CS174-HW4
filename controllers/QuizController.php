@@ -4,6 +4,7 @@ namespace caj_inc\hw4\controllers;
 
 // require_once("controllers/Controller.php");
 require_once("models/Test.php");
+require_once("data/english.txt");
 
 use caj_inc\hw4\models\Test;
 
@@ -13,8 +14,7 @@ class QuizController extends Controller {
     // aaron's quiz file is an associative array of 
     // word => [occurrences, [5-grams]]
     // get source array
-    $model = new Test();
-    $source = $model -> getArray();
+    $source = $this -> getData("english");
     // create a result array
     $result = [];
     // 20 times
@@ -49,5 +49,9 @@ class QuizController extends Controller {
       $result[$string] = $answers;
     }
     return $result;
+  }
+
+  function getData($language) {
+    return unserialize(file_get_contents("data/$language.txt"));
   }
 }
