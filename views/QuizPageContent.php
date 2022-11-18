@@ -35,17 +35,17 @@ class QuizPageContent extends View {
 
   function drawQuizQuestions($questions) {
     $index = 1;
-    foreach($questions as $key => $value) {
-        // ["question string" => ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]]
+    foreach($questions as $question) {
+        // [0 => "question string", 1 => ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]]
     	// $k = array_keys($value);
         // $v = array_values($value);
         $answerIndex = 0;
-        $prompt = $index.". ".$key;
+        $prompt = $index.". ".$question[0];
 
-        $a1 = $value[0];
-        $a2 = $value[1];
-        $a3 = $value[2];
-        $a4 = $value[3];
+        $a1 = $question[1][0];
+        $a2 = $question[1][1];
+        $a3 = $question[1][2];
+        $a4 = $question[1][3];
         ?>
         <div>
             <h5><?php echo $prompt; ?></h5>

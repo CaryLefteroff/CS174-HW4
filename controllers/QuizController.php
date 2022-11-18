@@ -13,6 +13,7 @@ class QuizController extends Controller {
     for ($i = 0; $i < 20; $i++) {
       // choose a word with uniform probability
       $word = array_rand($source);
+      // echo $word." ";
       // choose one of the 5-grams with uniform probability
       $string = $source[$word][1][array_rand($source[$word][1])];
       $string = explode(" ", $string);
@@ -38,7 +39,9 @@ class QuizController extends Controller {
         }
       }
       // add array of question strings => answers to result array
-      $result[$string] = $answers;
+      $question = [$string, $answers];
+      array_push($result, $question);
+      // $result[$string] = $answers;
     }
     return $result;
   }
