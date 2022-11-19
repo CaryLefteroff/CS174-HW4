@@ -1,6 +1,6 @@
 1. QuizMaker.php: Create a PHP script to create a serialized array from a text input
 Assigned to: Aaron
-Aaron: "QuizMaker is done"
+Aaron: "QuizMaker is done. Quiz data text file correctly generates in data folder. Included a sample of how to extract data in from the quiz data files at the bottom of QuizMaker.php."
 
 2. UI: Create the UI for the website using HTML, CSS, and PHP
 Assigned to: Cary and Jaime
@@ -20,8 +20,8 @@ Jaime: "Ok I think it works. Pushing to main."
 
 5. Monolog: Implement monolog/monolog to "write a log message after QuizMaker.php processes each file in a folder
 Assigned to: Aaron
-Aaron: "Monolog is done"
+Aaron: "Monolog is done. After QuizMaker processing each text file in each folder, a log message will be saved into thq quiz_file_creation.log. Log messages have also been implemented for some error checking."
 
 6. Composer.json: Set up composer.json
 Assigned to: Aaron
-Aaron: "Composer is set up right"
+Aaron: "Composer is set up right. I was able to correctly create log message using monolog by using the autoloader."
