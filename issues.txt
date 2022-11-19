@@ -1,17 +1,27 @@
 1. QuizMaker.php: Create a PHP script to create a serialized array from a text input
 Assigned to: Aaron
+Aaron: "QuizMaker is done"
 
 2. UI: Create the UI for the website using HTML, CSS, and PHP
 Assigned to: Cary and Jaime
+Cary: "I created some UI"
+Jaime: "I've merged my changes into main"
+Cary: "I've finished the UI for the quiz page"
+Jaime: "I've made UI for the results"
 
 3. JS Validation: Use javascript to validate PHP forms
 Assigned to: Cary
+Cary: "JS Validation is done"
 
 4. Controllers: Implement controllers to handle data required by and produced by quizzes
 Assigned to: Jaime
+Jaime: "Fixed bug with question generation"
+Jaime: "Ok I think it works. Pushing to main."
 
 5. Monolog: Implement monolog/monolog to "write a log message after QuizMaker.php processes each file in a folder
 Assigned to: Aaron
+Aaron: "Monolog is done"
 
 6. Composer.json: Set up composer.json
 Assigned to: Aaron
+Aaron: "Composer is set up right"
