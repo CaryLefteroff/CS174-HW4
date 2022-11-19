@@ -13,6 +13,7 @@ class LandingPageContent extends View {
                 var dropDown = document.getElementById("language").value;
                 var textBox = document.getElementById("experience").value;
                 if(textBox === "" || dropDown === "Choose a quiz") {
+                    alert("Make sure a quiz is selected and your experience has been entered.");
                     return false;
                 }
                 return true;
@@ -21,6 +22,7 @@ class LandingPageContent extends View {
             function checkResults() {
                 var dropDown = document.getElementById("language").value;
                 if(dropDown === "Choose a quiz") {
+                    alert("Make sure a quiz is selected.");
                     return false;
                 }
                 return true;
