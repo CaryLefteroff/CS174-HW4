@@ -40,7 +40,7 @@ class ResultsController extends Controller {
         }
       }
       // check if word exists in QuizStatistics
-      if (in_array($question_answer, $results)) {
+      if (in_array($question_answer, $language_results)) {
         // yes: increase word question count
         $language_results[$question_answer]["questionCount"] += 1;
       } else {
@@ -54,5 +54,6 @@ class ResultsController extends Controller {
       }
     }
     $this -> putResults($language_results);
+    header("Location: index.php");
   }
 }
