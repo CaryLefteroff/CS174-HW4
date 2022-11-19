@@ -57,7 +57,7 @@ class QuizPageContent extends View {
   function drawQuizQuestions($questions) {
     $index = 1;
     foreach($questions as $question) {
-        // [0 => "question string", 1 => ["Answer 1", "Answer 2", "Answer 3", "Answer 4"], 2 => "word", 3 => "percentile"]
+        // [0 => "question string", 1 => ["Answer 1", "Answer 2", "Answer 3", "Answer 4"], 2 => "word", 3 => "percentile", 4 => "index"]
     	// $k = array_keys($value);
         // $v = array_values($value);
         $word = explode(" ", $question[0])[2];
@@ -73,7 +73,8 @@ class QuizPageContent extends View {
             <p><?= $prompt ?></p>
             <span>
                 <input type="hidden" name=<?php echo "questionString$index" ?> value=<?= $question[0] ?>>
-                <input type="hidden" name=<?php echo "questionAnswer$index" ?> value=<?= $question[3] ?>>
+                <input type="hidden" name=<?php echo "questionAnswer$index" ?> value=<?= $question[2] ?>>
+                <input type="hidden" name=<?php echo "questionAnswerIndex$index" ?> value=<?= $question[4] ?>>
                 <input type="checkbox" id="answer<?= $index ?>_1" name="answer<?= $index ?>_1"/>
                 <label for="answer<?= $index ?>_1"><?= $a1 ?></label>
                 <input type="checkbox" id="answer<?= $index ?>_2" name="answer<?= $index ?>_2"/>
