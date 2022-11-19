@@ -22,10 +22,24 @@ class DefaultLayout extends Layout {
         </div>
     <?php
   }
+  function drawHeaderLanding($page_name) {
+    ?>
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <link rel="stylesheet" href="styles/styles.css" />
+        <title>QuizMaker</title>
+      </head>
+      <body>
+        <div class="header">
+          <h1><a href="index.php">Language Quiz</a></h1>
+        </div>
+    <?php
+  }
 
   function drawFooter() {
     ?>
-        <footer><p>SOME WORDS HERE MAYBE</p></footer>
+        <footer><p>CAJ Inc</p></footer>
       </body>
     </html>
     <?php

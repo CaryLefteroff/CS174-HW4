@@ -13,7 +13,7 @@ class DisplayController extends Controller {
   function renderLandingPage($language) {
     $default_layout = new views\layouts\DefaultLayout();
     $landing_page = new views\LandingPageContent();
-    $default_layout->drawHeader($language, "landing");
+    $default_layout->drawHeaderLanding("landing");
     $landing_page->render($language);
     $default_layout->drawFooter();
   }
