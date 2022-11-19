@@ -1,11 +1,29 @@
 <?php
+// composer monolog
+// monolog used to generate log message for each text file QuizMaker.php processes
+require '../vendor/autoload.php';
+use Monolog\Level;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+use Monolog\Handler\FirePHPHandler;
+
+$logger = new Logger('quizmaker_logger');
+
+// Need to use handlers to handle logs
+$logger->pushHandler(new StreamHandler(__DIR__.'/quiz_file_creation.log', Level::Info));
+$logger->pushHandler(new FirePHPHandler());
+
 
 if(file_exists('../data')) { //file_exists check if a file or dir exists
     $data_folder = opendir('../data'); //can use is_dir to check is something is a directory
     while (($language_folder = readdir($data_folder)) !== false) { // get each language folder
-        if ($language_folder == "english") {
+        $accepted_languages = ["english", "spanish", "french", "german", "italian", "portuguese", "russian", "chinese"];
+        if ($language_folder == "." || $language_folder == ".." || !is_dir("../data/$language_folder")) {
+            continue;
+        }
+        $text_files = glob("../data/" . $language_folder . "/*.txt");
+        if (in_array(strtolower($language_folder), $accepted_languages) && count($text_files) > 0) { // check if language folder is a accepted language
             $quiz_name = "../data/" . $language_folder . ".txt";
-            $text_files = glob("../data/" . $language_folder . "/*.txt");
             $quiz = [];
             foreach($text_files as $file_name) { //get corpus file paths for each language folder
                 if (is_file($file_name)) {
@@ -49,11 +67,15 @@ if(file_exists('../data')) { //file_exists check if a file or dir exists
                         }
                     }
                 }
+                $logger->info('QuizMaker.php processed file: ' . $file_name . ' for folder ' . $language_folder);
             }
             arsort($quiz);
             file_put_contents($quiz_name, serialize($quiz));
+        } else {
+            $logger->info('QuizMaker.php did not process folder: ' . $language_folder . ' because it did not contain text files');
         }
     }
+    $logger->info('Quiz Maker script has finished processing all files');
 }
 
 
@@ -63,10 +85,16 @@ if(file_exists('../data')) { //file_exists check if a file or dir exists
 // Each word is a key in the array, the value is an array of size 2 with the word count (index 0) and an array of word gram/s (index 2)
 // Returns: Type: Array, Contents: ["word" => [word_count, [word_gram1, word_gram2, ...]]]
 
-// if (file_exists("../data/english.txt")) {
-//     $data = unserialize(file_get_contents("../data/english.txt"));
+// if (file_exists("../data/french.txt")) {
+//     $data = unserialize(file_get_contents("../data/french.txt"));
 //     if ($data) {
+//         // echo count($data) . "\n";
 //         print_r($data);
 //     }
 // }
+
+
+
+
+
 
