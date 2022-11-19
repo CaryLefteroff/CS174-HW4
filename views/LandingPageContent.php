@@ -8,7 +8,27 @@ class LandingPageContent extends View {
   function render($page_name) {
     ?>
     <div id="quiz-chooser">
-        <form name="landing-form" method="post" action="index.php">
+        <script type="text/javascript">
+            function checkStart() {
+                var dropDown = document.getElementById("language").value;
+                var textBox = document.getElementById("experience").value;
+                if(textBox === "" || dropDown === "Choose a quiz") {
+                    alert("Make sure a quiz is selected and your experience has been entered.");
+                    return false;
+                }
+                return true;
+            }
+
+            function checkResults() {
+                var dropDown = document.getElementById("language").value;
+                if(dropDown === "Choose a quiz") {
+                    alert("Make sure a quiz is selected.");
+                    return false;
+                }
+                return true;
+            }
+        </script>
+        <form name="landing-form" method="post" action="index.php"  onsubmit="return checkStart()">
             <div>
             <select name="language" id="language">
                 <option>Choose a quiz</option>
@@ -22,15 +42,15 @@ class LandingPageContent extends View {
             <div>
                 <input type="hidden" name="c" value="DisplayController">
                 <input type="hidden" name="m" value="renderQuizPage">
-                <input type="text" name="experience"/>
+                <input type="text" name="experience" id="experience"/>
             </div>
             <div>
                 <span>
-                    <button type="submit" >Start Quiz</button>
+                    <button type="submit">Start Quiz</button>
                 </span>
             </div>
         </form>
-        <form name="results" method="post" action="index.php">
+        <form name="results" method="post" action="index.php" onsubmit="return checkResults()">
           <input type="hidden" name="c" value="DisplayController">
           <input type="hidden" name="m" value="renderResultsPage">
           <button type="submit">See Results</button>
