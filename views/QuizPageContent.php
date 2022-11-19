@@ -72,6 +72,7 @@ class QuizPageContent extends View {
             <span>
                 <input type="hidden" name=<?= $word ?> value=<?= $question[3] ?>>
                 <input type="checkbox" name="answer<?$index?>_1"/>
+                <label for="answer<?$index?>_1"><?php echo $a1;?></label>
                 <input type="checkbox" id="answer<?php echo $index;?>_1" name="answer<?php echo $index;?>_2"/>
                 <label for="answer<?$index?>_2"><?php echo $a2;?></label>
                 <input type="checkbox" id="answer<?php echo $index;?>_1" name="answer<?php echo $index;?>_3"/>
