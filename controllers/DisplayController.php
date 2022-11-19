@@ -14,7 +14,7 @@ class DisplayController extends Controller {
     $default_layout = new views\layouts\DefaultLayout();
     $landing_page = new views\LandingPageContent();
     $default_layout->drawHeader($language, "landing");
-    $landing_page->render(null);
+    $landing_page->render($language);
     $default_layout->drawFooter();
   }
 
@@ -22,7 +22,7 @@ class DisplayController extends Controller {
     $default_layout = new views\layouts\DefaultLayout();
     $quiz_page = new views\QuizPageContent();
     $default_layout->drawHeader($language, "quiz");
-    $quiz_page->render(null);
+    $quiz_page->render($language);
     $default_layout->drawFooter();
   }
 
@@ -30,7 +30,7 @@ class DisplayController extends Controller {
     $default_layout = new views\layouts\DefaultLayout();
     $results_page = new views\ResultsPageContent();
     $default_layout->drawHeader($language, "results");
-    $results_page->render(null);
+    $results_page->render($language);
     $default_layout->drawFooter();
   }
 }
