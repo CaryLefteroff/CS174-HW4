@@ -11,11 +11,12 @@ class ResultsController extends Controller {
   }
 
   function putResults($results) {
-    $file_name = "../data/QuizStatistics.txt";
+    $file_name = "data/QuizStatistics.txt";
     file_put_contents($file_name, serialize($results));
   }
 
   function calculateResults($language, $results) {
+    $language_results = $this -> getResults() ? $this -> getResults() : [];
     for ($i = 1; $i <= 20; $i++) {
       $question_string = $results["questionString$i"];
       $question_answer = $results["questionAnswer$i"];
@@ -38,23 +39,20 @@ class ResultsController extends Controller {
           }
         }
       }
-      $results = $this -> getResults() ? $this -> getResults() : [];
-      // print_r($results);
-      echo $question_answer;
       // check if word exists in QuizStatistics
       if (in_array($question_answer, $results)) {
         // yes: increase word question count
-        $results[$question_answer]["questionCount"] += 1;
+        $language_results[$question_answer]["questionCount"] += 1;
       } else {
         // no: add word with word question count 1 and correct count 0
-        $results[$question_answer]["questionCount"] = 1;
-        $results[$question_answer]["correctCount"] = 0;
+        $language_results[$question_answer]["questionCount"] = 1;
+        $language_results[$question_answer]["correctCount"] = 0;
       }
       // if correct, increase word correct count
       if ($correct) {
-        $results[$question_answer]["correctCount"] += 1;
+        $language_results[$question_answer]["correctCount"] += 1;
       }
     }
-    $this -> putResults($results);
+    $this -> putResults($language_results);
   }
 }

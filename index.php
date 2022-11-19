@@ -29,10 +29,10 @@ switch($controller) {
       $results["questionString$i"] = $_REQUEST["questionString$i"];
       $results["questionAnswer$i"] = $_REQUEST["questionAnswer$i"];
       $results["questionAnswerIndex$i"] = $_REQUEST["questionAnswerIndex$i"];
-      $results["answer$i"."_1"] = (isset($_REQUEST["answer$i"."_1"])) ? $_REQUEST["answer$i"."_1"] : "null";
-      $results["answer$i"."_2"] = (isset($_REQUEST["answer$i"."_2"])) ? $_REQUEST["answer$i"."_2"] : "null";
-      $results["answer$i"."_3"] = (isset($_REQUEST["answer$i"."_3"])) ? $_REQUEST["answer$i"."_3"] : "null";
-      $results["answer$i"."_4"] = (isset($_REQUEST["answer$i"."_4"])) ? $_REQUEST["answer$i"."_4"] : "null";
+      $results["answer$i"."_1"] = (isset($_REQUEST["answer$i"."_1"])) ? $_REQUEST["answer$i"."_1"] : null;
+      $results["answer$i"."_2"] = (isset($_REQUEST["answer$i"."_2"])) ? $_REQUEST["answer$i"."_2"] : null;
+      $results["answer$i"."_3"] = (isset($_REQUEST["answer$i"."_3"])) ? $_REQUEST["answer$i"."_3"] : null;
+      $results["answer$i"."_4"] = (isset($_REQUEST["answer$i"."_4"])) ? $_REQUEST["answer$i"."_4"] : null;
     }
     $results_controller = new ResultsController();
     $results_controller -> $controller_method($language, $results);
