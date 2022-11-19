@@ -2,6 +2,9 @@
 
 namespace caj_inc\hw4\controllers;
 
+require_once("models/QuizDataModel.php");
+use caj_inc\hw4\models\QuizDataModel;
+
 class QuizController extends Controller {
   function generateQuestions($language) {
     // format for each question: [0 => "question string", 1 => ["Answer 1", "Answer 2", "Answer 3", "Answer 4"], 2 => "word", 3 => "percentile"]
@@ -54,6 +57,7 @@ class QuizController extends Controller {
   }
 
   function getData($language) {
-    return unserialize(file_get_contents("data/$language.txt"));
+    $model = new QuizDataModel();
+    return $model->getData($language);
   }
 }
