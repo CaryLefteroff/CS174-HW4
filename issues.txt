@@ -12,3 +12,6 @@ Assigned to: Jaime
 
 5. Monolog: Implement monolog/monolog to "write a log message after QuizMaker.php processes each file in a folder
 Assigned to: Aaron
+
+6. Composer.json: Set up composer.json
+Assigned to: Aaron
