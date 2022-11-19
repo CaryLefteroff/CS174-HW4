@@ -71,13 +71,13 @@ class QuizPageContent extends View {
             <h5><?php echo $prompt; ?></h5>
             <span>
                 <input type="hidden" name=<?= $word ?> value=<?= $percentile ?>>
-                <input type="checkbox" id="answer<?$index?>_1" name="answer<?$index?>_1"/>
+                <input type="checkbox" id="answer<?php echo $index;?>_1" name="answer<?php echo $index;?>_1"/>
                 <label for="answer<?$index?>_1"><?php echo $a1;?></label>
-                <input type="checkbox" id="answer<?$index?>_1" name="answer<?$index?>_2"/>
+                <input type="checkbox" id="answer<?php echo $index;?>_1" name="answer<?php echo $index;?>_2"/>
                 <label for="answer<?$index?>_2"><?php echo $a2;?></label>
-                <input type="checkbox" id="answer<?$index?>_1" name="answer<?$index?>_3"/>
+                <input type="checkbox" id="answer<?php echo $index;?>_1" name="answer<?php echo $index;?>_3"/>
                 <label for="answer<?$index?>_3"><?php echo $a3;?></label>
-                <input type="checkbox" id="answer<?$index?>_1" name="answer<?$index?>_4"/>
+                <input type="checkbox" id="answer<?php echo $index;?>_1" name="answer<?php echo $index;?>_4"/>
                 <label for="answer<?$index?>_4"><?php echo $a4;?></label>
             </span>
         </div>
