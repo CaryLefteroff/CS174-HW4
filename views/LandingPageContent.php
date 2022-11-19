@@ -32,8 +32,16 @@ class LandingPageContent extends View {
             <div>
             <select name="language" id="language">
                 <option>Choose a quiz</option>
-                <option value="english">English</option>
-                <!--TODO ADD OPTIONS BASED ON GENERATED QUIZZES-->
+                <?php
+                 $text_files = glob("data/*.txt");
+                 print_r($text_files);
+                    foreach ($text_files as $file) {
+                        $file_name = basename($file, ".txt");
+                        if ($file_name !== "QuizStatistics") {
+                            echo "<option value='$file_name'>$file_name</option>";
+                        }
+                    }
+                ?>
             </select>
             </div>
             <div>

@@ -9,7 +9,7 @@ class QuizController extends Controller {
   function generateQuestions($language) {
     // format for each question: [0 => "question string", 1 => ["Answer 1", "Answer 2", "Answer 3", "Answer 4"], 2 => "word", 3 => "percentile"]
     // get source array
-    $source = $this -> getData("english");
+    $source = $this -> getData($language);
     $num_words = 0;
     foreach ($source as $word) {
       $num_words += $word[0];

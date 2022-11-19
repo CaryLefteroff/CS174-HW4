@@ -8,14 +8,14 @@ require_once("controllers/QuizController.php");
 use caj_inc\hw4\controllers\QuizController;
 
 class QuizPageContent extends View {
-  function render($page_name) {
+  function render($language) {
     // $temp = ["Question 1" => ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]];
     // $questions = [];
     // for ($i = 0; $i < 20; $i++) {
     //     $questions[$i] = $temp; //FOR TESTING
     // }
     $controller = new QuizController();
-    $questions = $controller -> generateQuestions($page_name);
+    $questions = $controller -> generateQuestions($language);
     ?>
     <div id="quiz-page">
         <script type="text/javascript">
