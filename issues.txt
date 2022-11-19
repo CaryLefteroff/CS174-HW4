@@ -10,5 +10,5 @@ Assigned to: Cary
 4. Controllers: Implement controllers to handle data required by and produced by quizzes
 Assigned to: Jaime
 
-6. Monolog: Implement monolog/monolog to "write a log message after QuizMaker.php processes each file in a folder
+5. Monolog: Implement monolog/monolog to "write a log message after QuizMaker.php processes each file in a folder
 Assigned to: Aaron
